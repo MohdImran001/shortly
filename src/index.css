@@ -1,13 +1,213 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    .logo {
+      font-size: 32px;
+      color: hsl(257, 27%, 26%);
+    }
+
+    .nav-text-gray {
+      color: hsl(257, 7%, 63%);
+      font-weight: 700;
+    }
+
+
+  
+    .short-url {
+      width: 80%;
+    }
+
+    nav {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    #mobile-nav {
+      display: none;
+    }
+
+
+    .nav-text-gray:hover {
+      color: hsl(257, 27%, 26%);
+    }
+
+    .btn {
+      background-color: hsl(180, 66%, 49%);
+      color: white;
+      font-weight: 700;
+    }
+
+    .sign-up {
+      background-color: hsl(180, 66%, 49%);
+      color: white;
+    }
+
+    .intro {
+      width: 80%;
+      margin: 130px auto 0 auto;
+    }
+
+
+    .intro img {
+      width: 200%;
+    }
+
+    .dark-violet {
+      color: hsl(257, 27%, 26%);
+    }
+
+    .title {
+      font-size: 84px;
+      font-weight: 700;
+      line-height: 95px;
+    }
+
+    .gray-text {
+      color: hsl(257, 7%, 63%);
+    }
+
+    .sub-title {
+      font-size: 20px;
+    }
+
+    .get-started {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    @media only screen and (max-width: 1440px) {
+
+      nav,
+      .intro,
+      .short-url {
+        width: 90%;
+      }
+    }
+
+    @media only screen and (max-width: 1660px) {
+      .title {
+        font-size: 72px;
+      }
+    }
+
+    @media only screen and (max-width: 1269px) {
+
+      nav,
+      .intro,
+      .short-url {
+        width: 90%;
+      }
+
+      .title {
+        font-size: 60px;
+        line-height: 70px;
+      }
+
+      .sub-title {
+        font-size: 18px;
+      }
+    }
+
+    @media only screen and (max-width: 935px) {
+      .title {
+        font-size: 48px;
+        line-height: 60px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+        padding-right: 7px;
+      }
+    }
+
+    @media only screen and (max-width: 865px) {
+
+      /* TODO:- Mobile Navbar Breakpoint */
+      #desktop-nav {
+        display: none;
+      }
+
+      #mobile-nav {
+        display: block;
+      }
+
+      nav,
+      .intro,
+      .short-url {
+        width: 90%;
+      }
+
+
+
+      nav {
+        padding: 0 10px 0 10px;
+      }
+
+      .intro {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 90px;
+      }
+
+      .intro img {
+        margin: 0 auto;
+      }
+
+      .title {
+        margin-top: 50px;
+        font-size: 72px;
+        line-height: 90px;
+      }
+
+      .sub-title {
+        font-size: 18px;
+        padding: 10px 10px 30px 10px;
+      }
+    }
+
+    @media only screen and (max-width: 608px) {
+      .title {
+        font-size: 48px;
+        line-height: 60px;
+      }
+    }
+
+    #mobile-nav-links {
+      background-color: hsl(257, 27%, 26%);
+      border-radius: 15px;
+      padding: 10px;
+      margin-top: 20px;
+      position: absolute;
+      width: 85%;
+      box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12)
+    }
+
+    #mobile-nav-links ul li {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+
+    #mobile-nav-links ul li hr {
+      border: .1px solid hsl(257, 7%, 63%);
+      width: 250px;
+      margin: 0 auto;
+    }
+

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    .logo {
+      font-size: 32px;
+      color: hsl(257, 27%, 26%);
+    }
+
+    .nav-text-gray {
+      color: hsl(257, 7%, 63%);
+      font-weight: 700;
+    }
+
+    nav {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    #mobile-nav {
+      display: none;
+    }
+
+
+    .nav-text-gray:hover {
+      color: hsl(257, 27%, 26%);
+    }
+
+    .btn {
+      background-color: hsl(180, 66%, 49%);
+      color: white;
+      font-weight: 700;
+    }
+
+    .sign-up {
+      background-color: hsl(180, 66%, 49%);
+      color: white;
+    }
+
+    .intro {
+      width: 80%;
+      margin: 130px auto 0 auto;
+    }
+
+    .intro img {
+      width: 200%;
+    }
+
+    .dark-violet {
+      color: hsl(257, 27%, 26%);
+    }
+
+    .title {
+      font-size: 84px;
+      font-weight: 700;
+      line-height: 95px;
+    }
+
+    .gray-text {
+      color: hsl(257, 7%, 63%);
+    }
+
+    .sub-title {
+      font-size: 20px;
+    }
+
+    .get-started {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    @media only screen and (max-width: 1440px) {
+
+      nav,
+      .intro {
+        width: 90%;
+      }
+    }
+
+    @media only screen and (max-width: 1660px) {
+      .title {
+        font-size: 72px;
+      }
+    }
+
+    @media only screen and (max-width: 1269px) {
+
+      nav,
+      .intro {
+        width: 90%;
+      }
+
+      .title {
+        font-size: 60px;
+        line-height: 70px;
+      }
+
+      .sub-title {
+        font-size: 18px;
+      }
+    }
+
+    @media only screen and (max-width: 935px) {
+      .title {
+        font-size: 48px;
+        line-height: 60px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+        padding-right: 7px;
+      }
+    }
+
+    @media only screen and (max-width: 865px) {
+
+      /* TODO:- Mobile Navbar Breakpoint */
+      #desktop-nav {
+        display: none;
+      }
+
+      #mobile-nav {
+        display: block;
+      }
+
+      nav,
+      .intro {
+        width: 90%;
+      }
+
+      nav {
+        padding: 0 10px 0 10px;
+      }
+
+      .intro {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 90px;
+      }
+
+      .intro img {
+        margin: 0 auto;
+      }
+
+      .title {
+        margin-top: 50px;
+        font-size: 72px;
+        line-height: 90px;
+      }
+
+      .sub-title {
+        font-size: 18px;
+        padding: 10px 10px 30px 10px;
+      }
+    }
+
+    @media only screen and (max-width: 608px) {
+      .title {
+        font-size: 48px;
+        line-height: 60px;
+      }
+    }
+
+    #mobile-nav-links {
+      display: none;
+      background-color: hsl(257, 27%, 26%);
+      border-radius: 15px;
+      padding: 10px;
+      margin-top: 20px;
+      position: absolute;
+      width: 85%;
+      box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12)
+    }
+
+    #mobile-nav-links ul li {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+
+    #mobile-nav-links ul li hr {
+      border: .1px solid hsl(257, 7%, 63%);
+      width: 250px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app" class="pt-10">
+
+    <nav class="flex flex-row" id="desktop-nav">
+      <ul class="flex flex-row space-x-12" id="first-nav">
+        <li class="logo -mt-3 font-bold">
+          <a href="#">Shortly</a>
+        </li>
+        <li class="nav-text-gray">
+          <a href="#">Features</a>
+        </li>
+        <li class="nav-text-gray">
+          <a href="#">Pricing</a>
+        </li>
+        <li class="nav-text-gray">
+          <a href="#">Resources</a>
+        </li>
+      </ul>
+      <ul class="flex flex-row ml-auto space-x-12" id="second-nav">
+        <li class="nav-text-gray">
+          <a href="#">Login</a>
+        </li>
+        <li class="btn sign-up rounded-full px-8 py-2 -mt-2">
+          <a href="#">Sign Up</a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav id="mobile-nav">
+      <div class="flex flex-row">
+        <h1 class="logo -mt-3 font-bold">
+          Shortly
+        </h1>
+        <p class="ml-auto">
+          <i class="fa fa-bars" aria-hidden="true" id="bar"></i>
+        </p>
+      </div>
+      <div id="mobile-nav-links" class="text-white text-center ">
+        <ul class="mb-10">
+          <li>
+            <a href="">Features</a>
+          </li>
+          <li>
+            <a href="">Pricing</a>
+          </li>
+          <li>
+            <a href="">Resources</a>
+          </li>
+          <li>
+            <hr class="text-gray-200 w-full">
+          </li>
+          <li>
+            <a href="" id="mobile-login">Login</a>
+          </li>
+          <li class="w-full">
+            <a href="" class="sign-up rounded-full w-full px-24 py-3">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="intro flex flex-row">
+      <div>
+        <h1 class="title dark-violet">
+          More than just
+          shorter links
+        </h1>
+        <p class="sub-title gray-text mt-3">
+          Build your brand’s recognition and get detailed
+          insights on how your links are performing.
+        </p>
+        <button class="btn py-3 px-8 rounded-full get-started mt-6">
+          Get Started
+        </button>
+      </div>
+
+      <div class="ml-auto w-full">
+        <img src="./images/illustration-working.svg" class="" alt="Boost Desktop Image">
+      </div>
+    </section>
+
+  </div>
+
+
+
+
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  Shorten It!
+
+  Advanced Statistics
+
+  Track how your links are performing across the web with our
+  advanced statistics dashboard.
+
+  Brand Recognition
+
+  Boost your brand recognition with each click. Generic links don’t
+  mean a thing. Branded links help instil confidence in your content.
+
+  Detailed Records
+
+  Gain insights into who is clicking your links. Knowing when and where
+  people engage with your content helps inform better decisions.
+
+  Fully Customizable
+
+  Improve brand awareness and content discoverability through customizable
+  links, supercharging audience engagement.
+
+  Boost your links today
+
+  Get Started
+
+  Features
+
+  Link Shortening
+  Branded Links
+  Analytics
+
+  Resources
+
+  Blog
+  Developers
+  Support
+
+  Company
+
+  About
+  Our Team
+  Careers
+  Contact
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>
