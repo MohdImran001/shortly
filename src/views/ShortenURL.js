@@ -41,7 +41,7 @@ class ShortURL extends React.Component {
                     shortURL: `${baseURL}${hashid}`,
                     url: url
                 }
-                console.log(urlObj)
+                this.props.saveURL(urlObj);
             }
 
         }

@@ -8,14 +8,6 @@ function App() {
       <MobileNav />
       <Intro />
       <Content />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
     </div>
   );
 }
