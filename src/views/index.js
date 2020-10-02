@@ -5,6 +5,9 @@ import Intro from './Intro'
 import ShortURL from './ShortenURL'
 import Content from './Content'
 import UrlList from './urlList'
+import Features from './Features'
+import Boost from './Boost'
+import Footer from './Footer'
 
 export {
     App,
@@ -13,5 +16,8 @@ export {
     Intro,
     ShortURL,
     Content,
-    UrlList
+    UrlList,
+    Features,
+    Boost,
+    Footer
 }

@@ -1,0 +1,38 @@
+.boost {
+    background: url('/images/bg-boost-desktop.svg') no-repeat center;
+    background-color: hsl(257, 27%, 26%);
+    background-size: cover;
+    text-align: center;
+    margin-top: 0px;
+    padding: 40px;
+}
+
+.boost h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+/* make text responsive */
+@media only screen and (max-width: 684px) {
+    .boost h1 {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .boost {
+        background: url('/images/bg-boost-mobile.svg') no-repeat center;
+        background-size: cover;
+        background-color: hsl(257, 27%, 26%);
+    }
+    .boost h1 {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .boost h1 {
+        font-size: 20px;
+    }
+}

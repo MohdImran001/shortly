@@ -1,6 +1,5 @@
 .content {
     background-color: #e2e8f0;
-    height: 700px;
     position: relative;
-    justify-content: center;
+    justify-items: center;
 }

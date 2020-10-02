@@ -8,11 +8,16 @@
     top: -70px;
     justify-content: center;
     padding-bottom: 40px;
+    left: 0;
+    right: 0;
 }
 
 
 @media only screen and (max-width: 865px) {
       .short-url {
+        background: url('/images/bg-shorten-mobile.svg') no-repeat center;
+        background-color: hsl(257, 27%, 26%);
+        background-size: cover;
         flex-direction: column;
         padding-bottom: 10px;
         height: auto;

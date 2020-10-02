@@ -22,9 +22,9 @@
       font-weight: 700;
     }
 
-
-  
-    .short-url {
+    .short-url,
+    .urlList,
+    .footer {
       width: 80%;
     }
 
@@ -90,7 +90,9 @@
 
       nav,
       .intro,
-      .short-url {
+      .short-url,
+      .urlList,
+      .footer {
         width: 90%;
       }
     }
@@ -105,7 +107,9 @@
 
       nav,
       .intro,
-      .short-url {
+      .short-url,
+      .urlList,
+      .footer {
         width: 90%;
       }
 
@@ -144,11 +148,11 @@
 
       nav,
       .intro,
-      .short-url {
+      .short-url,
+      .urlList,
+      .footer {
         width: 90%;
       }
-
-
 
       nav {
         padding: 0 10px 0 10px;
@@ -181,6 +185,13 @@
       .title {
         font-size: 48px;
         line-height: 60px;
+      }
+    }
+    
+    @media only screen and (max-width: 365px) {
+      .title {
+        font-size: 42px;
+        line-height: 50px;
       }
     }
 

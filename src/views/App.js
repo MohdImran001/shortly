@@ -1,5 +1,5 @@
 import React from 'react';
-import { DesktopNav, MobileNav, Intro, Content } from './'
+import { DesktopNav, MobileNav, Intro, Content, Boost, Footer } from './'
 
 function App() {
   return (
@@ -8,6 +8,8 @@ function App() {
       <MobileNav />
       <Intro />
       <Content />
+      <Boost />
+      <Footer />
     </div>
   );
 }

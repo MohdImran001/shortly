@@ -1,0 +1,71 @@
+.copy-btn  {
+    background-color: hsl(180, 66%, 49%);
+}
+
+.text-cyan {
+    color:  hsl(180, 66%, 49%);
+}
+
+.text-cyan:hover {
+    text-decoration: underline;
+}
+
+.bg-violet {
+    background-color: hsl(257, 27%, 26%);
+}
+
+.link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+}
+
+.short-link {
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 1080px) {
+    .link {
+        max-width: 25ch;
+    }
+}
+
+@media only screen and (max-width: 865px) {
+    .urlList {
+        margin-top: 200px;
+    }
+
+    .urlList ul li {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .short-link {
+        flex-direction: column;
+        margin-left: 0;
+        border-top: 2px solid #eee;
+        padding-top: 20px;
+    }
+
+    .short-link p {
+        margin-top: 15px;
+    }
+
+    .copy-btn {
+        margin-top: 10px;
+        margin-left: 0;
+        margin-bottom: 15px;
+        padding-top: 10px ;
+        padding-bottom: 10px;
+    }
+
+    .link {
+        padding: 15px 20px;
+        max-width: 25ch;
+    }
+
+    .short-link {
+        padding: 8px 20px;
+    }
+}

@@ -24,7 +24,6 @@ class ShortURL extends React.Component {
 
     async shortURL() {
         if (this.state.url.length > 0) {
-
             const res = await fetch(`${baseURL}api/links/`, {
                 method: 'POST',
                 headers: {
@@ -38,12 +37,12 @@ class ShortURL extends React.Component {
             if ([201, 200].includes(res.status)) {
                 const { hashid, url } = await res.json();
                 const urlObj = {
+                    id: hashid,
                     shortURL: `${baseURL}${hashid}`,
                     url: url
                 }
                 this.props.saveURL(urlObj);
             }
-
         }
         else {
             this.setState({
