@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/ShortURL.css'
 
-const baseURL = 'https://rel.ink/';
+const baseURL = 'https://api-ssl.bitly.com/v4/shorten';
 
 class ShortURL extends React.Component {
     constructor(props) {
@@ -18,35 +18,47 @@ class ShortURL extends React.Component {
     handleChange(e) {
         this.setState({
             url: e.target.value,
-            error: false
+            error: false,
+            errorMsg: ''
         })
     }
 
     async shortURL() {
         if (this.state.url.length > 0) {
-            const res = await fetch(`${baseURL}api/links/`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    url: this.state.url
-                })
-            });
-
-            if ([201, 200].includes(res.status)) {
-                const { hashid, url } = await res.json();
-                const urlObj = {
-                    id: hashid,
-                    shortURL: `${baseURL}${hashid}`,
-                    url: url
+            try {
+                const res = await fetch('https://api-ssl.bitly.com/v4/shorten', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer 69fec662f3c2734f7bb33f924bb660c804ff01ed"
+                    },
+                    body: JSON.stringify({
+                        "long_url": this.state.url,
+                        "domain": "bit.ly",
+                    })
+                });
+                if ([201, 200].includes(res.status)) {
+                    const { id, link, long_url } = await res.json();
+                    const urlObj = {
+                        id: id.split('/')[1],
+                        shortURL: link,
+                        url: long_url
+                    }
+                    this.props.saveURL(urlObj);
                 }
-                this.props.saveURL(urlObj);
+            }
+            catch (err) {
+                console.log(err);
+                this.setState({
+                    error: true,
+                    errorMsg: 'An error occurred, make sure that the url is correct !'
+                })
             }
         }
         else {
             this.setState({
-                error: true
+                error: true,
+                errorMsg: 'Please enter a url !'
             })
         }
     }
@@ -57,7 +69,7 @@ class ShortURL extends React.Component {
                 <div className="w-3/4 input-box">
                     <input type="text" placeholder="Shorten a link here..." className={`w-full p-4 rounded-lg ${this.state.error ? "error" : ""} `} onChange={this.handleChange} />
                     <br />
-                    {this.state.error ? <p className="error-text text-sm italic text-left mt-2">Please add a link</p> : null}
+                    {this.state.error ? <p className="error-text text-sm italic text-left mt-2"> {this.state.errorMsg} </p> : null}
 
                 </div>
                 <div className="w-1/4 btn-box">
