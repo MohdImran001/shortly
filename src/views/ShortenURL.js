@@ -19,12 +19,16 @@ class ShortURL extends React.Component {
         this.setState({
             url: e.target.value,
             error: false,
-            errorMsg: ''
+            errorMsg: '',
+            shortening: false
         })
     }
 
     async shortURL() {
         if (this.state.url.length > 0) {
+            this.setState({
+                shortening: true
+            })
             try {
                 const res = await fetch('https://api-ssl.bitly.com/v4/shorten', {
                     method: 'POST',
@@ -44,6 +48,9 @@ class ShortURL extends React.Component {
                         shortURL: link,
                         url: long_url
                     }
+                    this.setState({
+                        shortening: false
+                    })
                     this.props.saveURL(urlObj);
                 }
             }
@@ -73,7 +80,7 @@ class ShortURL extends React.Component {
 
                 </div>
                 <div className="w-1/4 btn-box">
-                    <button className="w-full text-white btn py-4 rounded-lg" onClick={this.shortURL}>Shorten It!</button>
+                    <button className="w-full text-white btn py-4 rounded-lg" onClick={this.shortURL}>{this.state.shortening ? 'Shortening...' : 'Shorten It!'}</button>
                 </div>
             </div>
         )
